@@ -29,4 +29,3 @@ class DashboardAccessTestCase(TestCase):
         self.client.login(username='learner', password='password')
         response = self.client.get(reverse('dashboard_learner'))
         self.assertEqual(response.status_code, 200)
-

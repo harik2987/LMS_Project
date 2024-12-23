@@ -16,6 +16,7 @@ class SCORMRuntimeTestCase(TestCase):
         )
 
     def test_scorm_runtime_tracking(self):
+        # Simulate SCORM runtime update
         self.client.login(username='Care_Learner1', password='password')
         response = self.client.post(f"/courses/scorm/runtime/update/{self.course.id}/", data={
             "progress": 50,
@@ -25,4 +26,3 @@ class SCORMRuntimeTestCase(TestCase):
         }, content_type="application/json")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json().get("status"), "success")
-
