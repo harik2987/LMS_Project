@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -155,4 +154,20 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 # Fix for session migration conflicts
 MIGRATION_MODULES = {
     'sessions': 'django.contrib.sessions.migrations',
+}
+
+# Logging for Debugging
+# Enable logging to monitor errors in production and testing
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG' if DEBUG else 'ERROR',
+    },
 }
