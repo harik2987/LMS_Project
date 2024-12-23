@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learner Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to the Learner Dashboard</h1>
+    <h2>Enrolled Courses</h2>
+    <ul>
+        {% for course in enrolled_courses %}
+            <li>{{ course.title }} - {{ course.description }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Your SCORM Courses</h2>
+    <ul>
+        {% for scorm in scorm_content %}
+            <li>
+                <a href="{{ scorm.launch_url }}" target="_blank"><strong>{{ scorm.title }}</strong></a>
+                <ul>
+                    <li>Time Spent: {{ scorm.time_spent }} hrs</li>
+                    <li>Completion Status: {{ scorm.completion_status }}</li>
+                    <li>Score: {% if scorm.score %}{{ scorm.score }}{% else %}N/A{% endif %}</li>
+                </ul>
+            </li>
+        {% empty %}
+            <li>No SCORM content available for your courses.</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        <li><a href="/users/logout/">Logout</a></li>
+    </ul>
+</body>
+</html>

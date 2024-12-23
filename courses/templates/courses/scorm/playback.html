@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ scorm_title }}</title>
+</head>
+<body>
+    <h1>{{ scorm_title }}</h1>
+    <iframe src="{{ launch_url }}" width="100%" height="600" frameborder="0"></iframe>
+    <script>
+        // Example of runtime data tracking (replace with SCORM API data)
+        const runtimeData = {
+            progress: 50,  // Replace with actual SCORM data
+            score: 85,
+            completion_status: "in_progress"
+        };
+
+        // Dynamically include the course_id in the runtime tracking endpoint
+        fetch(`/courses/scorm/runtime/update/{{ course_id }}/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRFToken": "{{ csrf_token }}",
+            },
+            body: JSON.stringify(runtimeData)
+        }).then(response => response.json())
+          .then(data => console.log("Runtime Update Response:", data))
+          .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>

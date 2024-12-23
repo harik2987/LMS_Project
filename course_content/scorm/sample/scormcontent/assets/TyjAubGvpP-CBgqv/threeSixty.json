@@ -1,0 +1,72 @@
+{
+  "version": "3.60.26947.0",
+  "course_id": "5cNo1BUXCAp_course_id",
+  "title": "PDP Drag and Drop Activity 1",
+  "thumbnail": "story_content/thumbnail.jpg",
+  "scenes": [
+    {
+      "title": "Untitled Scene"
+    }
+  ],
+  "slides": [
+    {
+      "id": "6YCuApJ7Qfp",
+      "title": "Scenario",
+      "scene_index": "1.1"
+    },
+    {
+      "id": "5uCfMXsYZym",
+      "title": "1",
+      "scene_index": "1.2"
+    },
+    {
+      "id": "5haWmc8g2cx",
+      "title": "2",
+      "scene_index": "1.3"
+    },
+    {
+      "id": "6LD0e88fqpV",
+      "title": "3",
+      "scene_index": "1.4"
+    },
+    {
+      "id": "6jMqmhfupNA",
+      "title": "4",
+      "scene_index": "1.5"
+    },
+    {
+      "id": "5gvrLTxRhxB",
+      "title": "5",
+      "scene_index": "1.6"
+    },
+    {
+      "id": "6pidixlQmi5",
+      "title": "6",
+      "scene_index": "1.7"
+    },
+    {
+      "id": "5ey8DoMpLOV",
+      "title": "5",
+      "scene_index": "1.8"
+    },
+    {
+      "id": "5taJf4tLCJe",
+      "title": "6",
+      "scene_index": "1.9"
+    },
+    {
+      "id": "6G4u3ntCXe9",
+      "title": "Untitled Slide",
+      "scene_index": "1.10"
+    }
+  ],
+  "player": {
+    "name": "unified",
+    "width": 1300,
+    "height": 740
+  },
+  "stage": {
+    "width": 1280,
+    "height": 720
+  }
+}
