@@ -1,0 +1,3 @@
+[submodule "Scorm"]
+	path = Scorm
+	url = https://github.com/EscolaLMS/Scorm.git
