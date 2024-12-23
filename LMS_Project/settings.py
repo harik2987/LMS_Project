@@ -79,9 +79,16 @@ WSGI_APPLICATION = 'LMS_Project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/harikrishnan/LMS_Project/Scorm/scorm-lms/database/db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# Override database settings for CI environment
+if os.getenv('GITHUB_ACTIONS'):
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ':memory:',  # Use in-memory SQLite database for CI pipelines
+    }
 
 
 # Password validation
