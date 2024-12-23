@@ -77,7 +77,7 @@ class SCORM(models.Model):
         help_text="Tracks learner progress, scores, and completion status."
     )
     time_spent = models.DecimalField(
-        max_digits=5,
+        max_digits=6,  # Allow larger values for total time
         decimal_places=2,
         default=0.0,
         help_text="Total time spent by the learner in hours."
@@ -106,6 +106,8 @@ class SCORM(models.Model):
 
     class Meta:
         unique_together = ('course', 'title')
+        verbose_name = "SCORM Package"
+        verbose_name_plural = "SCORM Packages"
 
     def __str__(self):
         return f"{self.title} ({self.version})"

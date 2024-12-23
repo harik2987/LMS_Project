@@ -127,10 +127,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
-# Add fallback for STATICFILES_DIRS if the static directory doesn't exist
-if not os.path.exists(BASE_DIR / 'static'):
-    STATICFILES_DIRS = []
-
 # Media files (SCORM content and other uploaded files)
 MEDIA_URL = '/course_content/'
 MEDIA_ROOT = BASE_DIR / 'course_content'
@@ -151,11 +147,6 @@ LOGIN_URL = '/users/login/'  # Ensures @login_required redirects to the correct 
 # Session engine (ensure session table is created)
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
-# Fix for session migration conflicts
-MIGRATION_MODULES = {
-    'sessions': 'django.contrib.sessions.migrations',
-}
-
 # Logging for Debugging
 # Enable logging to monitor errors in production and testing
 LOGGING = {
@@ -171,3 +162,20 @@ LOGGING = {
         'level': 'DEBUG' if DEBUG else 'ERROR',
     },
 }
+
+# Ensure static directory exists and create placeholder files if necessary (Development Only)
+if DEBUG:
+    STATICFILES_INIT = [
+        ('favicon.ico', b''),
+        ('apple-touch-icon.png', b''),
+        ('apple-touch-icon-precomposed.png', b''),
+    ]
+
+    if not os.path.exists(BASE_DIR / 'static'):
+        os.makedirs(BASE_DIR / 'static')
+
+    for file_name, content in STATICFILES_INIT:
+        file_path = BASE_DIR / 'static' / file_name
+        if not file_path.exists():
+            with open(file_path, 'wb') as f:
+                f.write(content)
