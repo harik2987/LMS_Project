@@ -12,13 +12,17 @@
         <li>Total Users: {{ total_users }}</li>
         <li>Total Active Courses: {{ total_courses }}</li>
     </ul>
+    <h3>Branch Courses</h3>
+    <ul>
+        {% for course in branch_courses %}
+            <li>{{ course.title }}</li>
+        {% endfor %}
+    </ul>
     <h3>Quick Links</h3>
     <ul>
         <li><a href="/admin/">Admin Panel</a></li>
         <li><a href="/courses/">Manage Courses</a></li>
         <li><a href="/users/">Manage Users</a></li>
-    </ul>
-    <ul>
         <li><a href="/users/logout/">Logout</a></li>
     </ul>
 </body>
