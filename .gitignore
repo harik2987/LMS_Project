@@ -1,1 +1,4 @@
 course_content/scorm/1/*.zip
+db.sqlite3
+static/
+course_content/
